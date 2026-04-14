@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AJ WEB TECH | Digital Homes for Visionaries</title>
-    <meta name="description" content="Immersive, fast, high-converting sites for founders and personal brands. Built by Emmanuel Adesegun.">
+    <title>AJ WEB TECH | Emmanuel Adesegun</title>
     
-    <!-- Typography -->
+    <!-- Typography: Premium Serif + Clean Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     
-    <!-- Scripts: Tailwind & GSAP for animations -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -40,194 +38,181 @@
             background: url('https://grainy-gradients.vercel.app/noise.svg');
             opacity: 0.04; pointer-events: none; z-index: 50;
         }
-        .cursor-follower {
-            width: 20px; height: 20px; background: #00F5FF;
-            border-radius: 50%; position: fixed; pointer-events: none;
-            z-index: 100; mix-blend-mode: difference; transition: transform 0.1s ease;
-        }
-        .project-card:hover img { transform: scale(1.05) rotate(1deg); }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .text-glow:hover { text-shadow: 0 0 15px rgba(0, 245, 255, 0.5); transition: 0.3s; }
-        
-        /* Smooth Horizontal Scroll for Desktop */
-        @media (min-width: 1024px) {
-            .horizontal-scroll { display: flex; width: 300%; }
-        }
+        .project-card { transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
+        .glass-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); }
+        .img-container { overflow: hidden; border-radius: 1rem; position: relative; }
+        .img-container img { transition: transform 0.8s ease; width: 100%; height: 100%; object-fit: cover; }
+        .project-card:hover img { transform: scale(1.08); }
     </style>
 </head>
 <body class="font-sans antialiased">
     <div class="grain"></div>
-    <div class="cursor-follower" id="cursor"></div>
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-40 px-6 py-8 flex justify-between items-center mix-blend-difference">
-        <span class="font-serif italic text-2xl tracking-tighter">AJWT</span>
-        <div class="flex gap-8 items-center text-xs uppercase tracking-widest font-medium">
-            <a href="#work" class="hover:text-accent transition">Portfolio</a>
-            <a href="https://wa.me/yourlink" class="bg-light text-dark px-6 py-3 rounded-full hover:bg-accent hover:text-dark transition duration-500">Book Call</a>
-        </div>
+        <span class="font-serif italic text-2xl tracking-tighter text-accent">AJWT</span>
+        <a href="https://wa.me/message/L5WMYXNVCH36M1" class="bg-light text-dark px-6 py-3 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-accent transition duration-500">Book Call</a>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="min-h-screen flex flex-col justify-center px-6 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto w-full pt-20">
-            <h1 class="font-serif text-[clamp(3.5rem,12vw,9rem)] leading-[0.9] tracking-tighter mb-8 reveal">
+    <!-- Hero -->
+    <section class="min-h-screen flex flex-col justify-center px-6 pt-20">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="font-serif text-[clamp(3rem,10vw,8rem)] leading-[0.9] tracking-tighter mb-8 opacity-0" id="hero-title">
                 Digital homes for <br><span class="italic text-accent">visionaries.</span>
             </h1>
-            <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
                 <p class="max-w-md text-lg text-slate-400 font-light leading-relaxed">
-                    We build immersive, world-class sites that turn founders into icons. 
-                    No templates. No noise. Just pure impact.
+                    AJ Web Tech by Emmanuel Adesegun. We build immersive, world-class sites for founders who want their brand to feel like a destination.
                 </p>
-                <div class="flex gap-4">
-                    <a href="#work" class="border border-white/20 px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:border-accent hover:text-accent transition duration-500">See work</a>
-                </div>
+                <a href="#work" class="border border-white/20 px-10 py-5 rounded-full text-xs uppercase tracking-[0.2em] hover:bg-white hover:text-black transition duration-500">Explore Work</a>
             </div>
-        </div>
-
-        <!-- Hero Mockup (Decorative) -->
-        <div class="mt-20 opacity-40 grayscale hover:grayscale-0 transition duration-1000 transform hover:scale-[1.02]">
-            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=2000" alt="Premium Design" class="w-full h-[60vh] object-cover rounded-2xl">
         </div>
     </section>
 
-    <!-- Selected Work -->
+    <!-- Selected Work: Using your actual images -->
     <section id="work" class="py-32 px-6">
-        <div class="max-w-7xl mx-auto mb-20 flex justify-between items-end">
-            <div>
-                <span class="text-accent text-xs uppercase tracking-[0.3em] mb-4 block">01 — Selected Work</span>
-                <h2 class="font-serif text-5xl md:text-7xl">The Gallery</h2>
-            </div>
-            <div class="hidden md:block text-slate-500 text-sm">Scroll to explore →</div>
+        <div class="max-w-7xl mx-auto mb-20">
+            <span class="text-accent text-xs uppercase tracking-[0.3em] mb-4 block italic">Portfolio — 01</span>
+            <h2 class="font-serif text-5xl md:text-7xl italic text-glow">Selected Works</h2>
         </div>
 
-        <div class="flex flex-col md:flex-row gap-12 overflow-x-visible">
-            <!-- Project 1 -->
-            <div class="project-card w-full md:w-1/2 flex-shrink-0 group">
-                <div class="overflow-hidden rounded-xl glass aspect-[4/5] relative">
-                    <img src="https://images.unsplash.com/photo-1635776062127-d379bfcba9f8?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover transition-transform duration-700">
-                    <div class="absolute bottom-8 left-8">
-                        <span class="bg-accent text-dark text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-2 inline-block">+140% Conversion</span>
-                        <h3 class="text-3xl font-serif">Jara Wallet</h3>
-                    </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-7xl mx-auto">
+            
+            <!-- Project 1: Jara Wallet -->
+            <div class="project-card flex flex-col gap-6" data-speed="1.1">
+                <div class="img-container aspect-[16/10] glass-card p-4">
+                    <img src="ja.jpg" alt="Jara Wallet">
                 </div>
-                <p class="mt-6 text-slate-400 italic">Fintech → A seamless world for digital assets.</p>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="font-serif text-3xl">Jara Wallet</h3>
+                        <p class="text-slate-500 text-sm mt-1 uppercase tracking-widest">Fintech • +140% Conversion</p>
+                    </div>
+                    <a href="https://jarawallet.com/" target="_blank" class="text-accent text-xs hover:underline uppercase tracking-tighter">Visit Site</a>
+                </div>
             </div>
 
-            <!-- Project 2 -->
-            <div class="project-card w-full md:w-1/2 flex-shrink-0 group mt-20">
-                <div class="overflow-hidden rounded-xl glass aspect-[4/5] relative border border-accent/20">
-                    <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover transition-transform duration-700">
-                    <div class="absolute bottom-8 left-8">
-                        <span class="bg-accent text-dark text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-2 inline-block">50k+ Active Users</span>
-                        <h3 class="text-3xl font-serif">Alter Learning</h3>
-                    </div>
+            <!-- Project 2: The Ade Quality -->
+            <div class="project-card flex flex-col gap-6 md:mt-32" data-speed="1.2">
+                <div class="img-container aspect-[16/10] glass-card p-4">
+                    <img src="Ade.png" alt="The Ade Quality">
                 </div>
-                <p class="mt-6 text-slate-400 italic">EdTech → Interactive storytelling through code.</p>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="font-serif text-3xl">The Ade Quality</h3>
+                        <p class="text-slate-500 text-sm mt-1 uppercase tracking-widest">Industrial • Authority Driven</p>
+                    </div>
+                    <a href="https://theadequality.com" target="_blank" class="text-accent text-xs hover:underline uppercase tracking-tighter">Visit Site</a>
+                </div>
             </div>
+
+            <!-- Project 3: Alter Learning -->
+            <div class="project-card flex flex-col gap-6" data-speed="1.1">
+                <div class="img-container aspect-[16/10] glass-card p-4">
+                    <img src="alter.png" alt="Alter Learning">
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="font-serif text-3xl">Alter Learning</h3>
+                        <p class="text-slate-500 text-sm mt-1 uppercase tracking-widest">EdTech • Interactive Experience</p>
+                    </div>
+                    <a href="https://alter-learning.com/" target="_blank" class="text-accent text-xs hover:underline uppercase tracking-tighter">Visit Site</a>
+                </div>
+            </div>
+
+            <!-- Project 4: Timigold Photography -->
+            <div class="project-card flex flex-col gap-6 md:mt-32" data-speed="1.2">
+                <div class="img-container aspect-[16/10] glass-card p-4">
+                    <img src="timi.png" alt="Timigold Photography">
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="font-serif text-3xl">Timigold Photography</h3>
+                        <p class="text-slate-500 text-sm mt-1 uppercase tracking-widest">Creative • Editorial Layout</p>
+                    </div>
+                    <a href="https://www.timigoldphotography.org" target="_blank" class="text-accent text-xs hover:underline uppercase tracking-tighter">Visit Site</a>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Outcomes (Services) -->
-    <section class="py-32 px-6 bg-[#0E0E0E]">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="font-serif text-4xl md:text-6xl mb-20 text-center italic text-glow">We don't build pages. <br>We build worlds.</h2>
-            
-            <div class="grid md:grid-cols-3 gap-12">
-                <div class="space-y-4">
-                    <div class="text-accent text-xl italic font-serif">01.</div>
-                    <h4 class="text-xl font-bold tracking-tight uppercase">Speed as Luxury</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed">Sub-1.5s load times. Because waiting is for the average. Instant authority for your brand.</p>
+    <!-- Services Section -->
+    <section class="py-40 px-6 bg-[#0E0E0E]">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="font-serif text-4xl md:text-6xl mb-16 italic">We don't build pages. <br><span class="text-accent">We build worlds.</span></h2>
+            <div class="grid md:grid-cols-3 gap-12 text-left">
+                <div>
+                    <h4 class="text-xs font-bold tracking-widest uppercase text-accent mb-4 underline decoration-accent/30 decoration-2 underline-offset-8">Speed</h4>
+                    <p class="text-sm text-slate-400 font-light leading-relaxed">Sites that load in under 1.5s. Fast enough to catch every single potential lead.</p>
                 </div>
-                <div class="space-y-4">
-                    <div class="text-accent text-xl italic font-serif">02.</div>
-                    <h4 class="text-xl font-bold tracking-tight uppercase">Narrative Depth</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed">Custom micro-interactions that tell your story while your visitors scroll. Immersive and hypnotic.</p>
+                <div>
+                    <h4 class="text-xs font-bold tracking-widest uppercase text-accent mb-4 underline decoration-accent/30 decoration-2 underline-offset-8">Immersion</h4>
+                    <p class="text-sm text-slate-400 font-light leading-relaxed">Micro-interactions and parallax effects that make visitors stay 2x longer.</p>
                 </div>
-                <div class="space-y-4">
-                    <div class="text-accent text-xl italic font-serif">03.</div>
-                    <h4 class="text-xl font-bold tracking-tight uppercase">Iconic Status</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed">Websites that feel like a Vogue cover. Designed to position you as the top 1% in your industry.</p>
+                <div>
+                    <h4 class="text-xs font-bold tracking-widest uppercase text-accent mb-4 underline decoration-accent/30 decoration-2 underline-offset-8">Conversion</h4>
+                    <p class="text-sm text-slate-400 font-light leading-relaxed">Every pixel is designed with one goal: Getting them to click "Book a Call."</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Final CTA -->
-    <section class="py-40 px-6 text-center relative overflow-hidden">
-        <div class="relative z-10">
-            <h2 class="font-serif text-5xl md:text-[8rem] leading-none mb-12 tracking-tighter italic">
-                Your site should feel <br> like your world.
-            </h2>
-            <a href="https://wa.me/message/L5WMYXNVCH36M1" class="inline-block bg-accent text-dark font-bold text-xl px-12 py-6 rounded-full hover:scale-110 transition duration-500 shadow-[0_0_30px_rgba(0,245,255,0.3)]">
-                Book a discovery call
+    <section class="py-60 px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="font-serif text-5xl md:text-8xl mb-12 tracking-tighter italic">Ready to build your legacy?</h2>
+            <a href="https://wa.me/message/L5WMYXNVCH36M1" class="inline-block bg-accent text-dark font-bold text-lg px-12 py-6 rounded-full hover:scale-110 transition duration-500 shadow-[0_0_40px_rgba(0,245,255,0.2)]">
+                Secure your project date
             </a>
         </div>
-        <!-- Decorative Glow -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/10 blur-[120px] rounded-full"></div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-20 px-6 border-t border-white/5">
-        <div class="max-w-7xl mx-auto flex flex-col md:row justify-between items-center gap-10">
-            <div class="text-left w-full md:w-auto">
-                <span class="font-serif italic text-3xl">AJ Web Tech</span>
-                <p class="text-slate-600 text-xs tracking-widest mt-2 uppercase">Abuja based. Globally active.</p>
-            </div>
-            <div class="flex gap-12 text-xs uppercase tracking-widest font-bold text-slate-400">
-                <a href="#" class="hover:text-accent transition">Instagram</a>
-                <a href="#" class="hover:text-accent transition">X / Twitter</a>
-                <a href="mailto:hello@ajwebtech.com" class="hover:text-accent transition">Email</a>
-            </div>
-            <div class="text-[10px] text-slate-700">© 2024 EMMA ADESEGUN. ALL RIGHTS RESERVED.</div>
+    <footer class="py-20 px-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="text-left font-serif italic text-2xl">AJ Web Tech</div>
+        <div class="text-[10px] uppercase tracking-[0.5em] text-slate-600">Based in Abuja • Global Impact</div>
+        <div class="flex gap-8 text-xs font-bold uppercase tracking-widest">
+            <a href="https://www.instagram.com/codepastac" class="hover:text-accent">Instagram</a>
+            <a href="https://wa.me/message/L5WMYXNVCH36M1" class="hover:text-accent">WhatsApp</a>
         </div>
     </footer>
 
     <script>
-        // GSAP Initialization
         gsap.registerPlugin(ScrollTrigger);
 
-        // Custom Cursor
-        const cursor = document.getElementById('cursor');
-        document.addEventListener('mousemove', (e) => {
-            gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1 });
-        });
+        // Hero Animation
+        gsap.to("#hero-title", { opacity: 1, y: 0, duration: 1.5, ease: "power4.out", delay: 0.2 });
 
-        // Entrance Animations
-        gsap.from(".reveal", {
-            y: 100, opacity: 0, duration: 1.5, ease: "power4.out", stagger: 0.2
-        });
-
-        // Reveal work on scroll
+        // Project Cards Parallax and Scroll
         gsap.utils.toArray(".project-card").forEach(card => {
             gsap.from(card, {
                 scrollTrigger: {
                     trigger: card,
-                    start: "top 85%",
+                    start: "top 90%",
                 },
-                y: 50, opacity: 0, duration: 1, ease: "power3.out"
+                y: 100,
+                opacity: 0,
+                duration: 1.2,
+                ease: "power3.out"
             });
         });
 
-        // 3D Tilt Effect on cards
-        const cards = document.querySelectorAll('.project-card');
-        cards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const xc = rect.width / 2;
-                const yc = rect.height / 2;
-                const dx = x - xc;
-                const dy = y - yc;
-                gsap.to(card, {
-                    rotationY: dx / 20,
-                    rotationX: -dy / 20,
+        // 3D Tilt for Images
+        document.querySelectorAll('.img-container').forEach(container => {
+            container.addEventListener('mousemove', (e) => {
+                const rect = container.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                gsap.to(container.querySelector('img'), {
+                    rotationY: x * 10,
+                    rotationX: -y * 10,
+                    scale: 1.05,
                     duration: 0.5,
                 });
             });
-            card.addEventListener('mouseleave', () => {
-                gsap.to(card, { rotationY: 0, rotationX: 0, duration: 0.5 });
+            container.addEventListener('mouseleave', () => {
+                gsap.to(container.querySelector('img'), { rotationY: 0, rotationX: 0, scale: 1, duration: 0.5 });
             });
         });
     </script>
