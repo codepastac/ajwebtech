@@ -33,34 +33,25 @@
     <style>
         body { background-color: #050505; color: #F5F5F0; }
         
-        /* The "Professional Image Fix": Filters and Overlays */
         .project-img-wrapper {
             position: relative;
             overflow: hidden;
             background: #111;
             aspect-ratio: 16/10;
-            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.1);
         }
         
         .project-img-wrapper img {
-            filter: grayscale(100%) brightness(0.7) contrast(1.1);
+            filter: grayscale(100%) brightness(0.6);
             transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
             object-fit: cover;
             width: 100%;
             height: 100%;
         }
 
-        /* Hover: Restore color and zoom */
         .project-card:hover img {
-            filter: grayscale(0%) brightness(1) contrast(1);
-            transform: scale(1.05);
-        }
-
-        /* Subtle vignette to hide image edges */
-        .vignette {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle, transparent 50%, rgba(0,0,0,0.8) 150%);
-            pointer-events: none; z-index: 10;
+            filter: grayscale(0%) brightness(1);
+            transform: scale(1.03);
         }
 
         .grain {
@@ -69,202 +60,196 @@
             opacity: 0.03; pointer-events: none; z-index: 50;
         }
 
-        .cta-glow {
-            box-shadow: 0 0 50px -10px rgba(0, 245, 255, 0.4);
+        /* Subtle underline animation */
+        .hover-link {
+            position: relative;
+            display: inline-block;
         }
+        .hover-link::after {
+            content: '';
+            position: absolute; width: 0; height: 1px; bottom: -2px; left: 0;
+            background-color: #00F5FF; transition: width 0.3s ease;
+        }
+        .hover-link:hover::after { width: 100%; }
     </style>
 </head>
 <body class="font-sans antialiased">
     <div class="grain"></div>
 
-    <!-- Nav -->
-    <nav class="fixed top-0 w-full z-40 px-10 py-8 flex justify-between items-center mix-blend-difference">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-40 px-6 md:px-12 py-8 flex justify-between items-center mix-blend-difference">
         <span class="font-serif italic text-2xl tracking-tighter text-white">AJWT</span>
-        <a href="https://wa.me/message/L5WMYXNVCH36M1" class="text-[10px] uppercase tracking-[0.3em] border-b border-accent pb-1">Start a Project</a>
+        <div class="flex gap-6 items-center">
+            <a href="https://wa.me/message/L5WMYXNVCH36M1" class="text-[10px] uppercase tracking-[0.2em] font-bold bg-white text-black px-5 py-2 rounded-full hover:bg-accent transition-colors">Book a Call</a>
+        </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="min-h-[90vh] flex flex-col justify-center px-10">
+    <!-- Hero Section (Reduced Height to fix big space issue) -->
+    <section class="pt-40 pb-20 px-6 md:px-12">
         <div class="max-w-6xl">
-            <h1 class="font-serif text-[clamp(2.5rem,8vw,7rem)] leading-[0.95] tracking-tighter mb-10">
-                Building digital <br><span class="italic text-accent">worlds</span> for founders.
+            <h1 class="font-serif text-[clamp(2.5rem,7vw,6.5rem)] leading-[0.95] tracking-tighter mb-8">
+                Digital <span class="italic text-accent">worlds</span> <br> for visionaries.
             </h1>
-            <p class="max-w-lg text-slate-400 text-lg font-light leading-relaxed">
+            <p class="max-w-xl text-slate-400 text-lg md:text-xl font-light leading-relaxed">
                 AJ Web Tech creates high-converting, immersive platforms. We don't just build websites; we build the future home of your brand.
             </p>
         </div>
     </section>
 
-    <!-- Work Grid -->
-    <section class="px-10 py-20">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+    <!-- Project Gallery -->
+    <section class="px-6 md:px-12 py-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16">
             
-            <!-- Project 1: Jara Wallet App -->
+            <!-- Project 1 -->
             <div class="project-card group">
                 <div class="project-img-wrapper">
-                    <div class="vignette"></div>
                     <img src="ja.jpg" alt="Jara App">
                 </div>
-                <div class="mt-6">
-                    <h3 class="font-serif text-2xl italic">Jara Wallet App</h3>
-                    <p class="text-xs uppercase tracking-widest text-slate-500 mt-2">Fintech • Mobile Solution</p>
+                <div class="mt-5">
+                    <h3 class="font-serif text-xl italic tracking-tight">Jara Wallet App</h3>
+                    <p class="text-[10px] uppercase tracking-widest text-slate-500 mt-1">Fintech • Mobile Solution</p>
                 </div>
             </div>
 
-            <!-- Project 2: Jara Wallet Web -->
+            <!-- Project 2 -->
             <div class="project-card group">
                 <div class="project-img-wrapper">
-                    <div class="vignette"></div>
                     <img src="jarawallet.png" alt="Jara Web">
                 </div>
-                <div class="mt-6">
-                    <h3 class="font-serif text-2xl italic">Jara Wallet Ecosystem</h3>
-                    <p class="text-xs uppercase tracking-widest text-slate-500 mt-2">Web Platform • High Security</p>
+                <div class="mt-5">
+                    <h3 class="font-serif text-xl italic tracking-tight">Jara Wallet Web</h3>
+                    <p class="text-[10px] uppercase tracking-widest text-slate-500 mt-1">Ecosystem • High Security</p>
                 </div>
             </div>
 
-            <!-- Project 3: Ade Quality -->
+            <!-- Project 3 -->
             <div class="project-card group">
                 <div class="project-img-wrapper">
-                    <div class="vignette"></div>
                     <img src="Ade.png" alt="Ade Quality">
                 </div>
-                <div class="mt-6">
-                    <h3 class="font-serif text-2xl italic">The Ade Quality</h3>
-                    <p class="text-xs uppercase tracking-widest text-slate-500 mt-2">Industrial • Corporate Identity</p>
+                <div class="mt-5">
+                    <h3 class="font-serif text-xl italic tracking-tight">The Ade Quality</h3>
+                    <p class="text-[10px] uppercase tracking-widest text-slate-500 mt-1">Industrial • Corporate</p>
                 </div>
             </div>
 
-            <!-- Project 4: Alter Learning -->
+            <!-- Project 4 -->
             <div class="project-card group">
                 <div class="project-img-wrapper">
-                    <div class="vignette"></div>
                     <img src="alter.png" alt="Alter Learning">
                 </div>
-                <div class="mt-6">
-                    <h3 class="font-serif text-2xl italic">Alter Learning</h3>
-                    <p class="text-xs uppercase tracking-widest text-slate-500 mt-2">EdTech • Game Experience</p>
+                <div class="mt-5">
+                    <h3 class="font-serif text-xl italic tracking-tight">Alter Learning</h3>
+                    <p class="text-[10px] uppercase tracking-widest text-slate-500 mt-1">EdTech • Interaction</p>
                 </div>
             </div>
 
-            <!-- Project 5: Flixsend -->
+            <!-- Project 5 -->
             <div class="project-card group">
                 <div class="project-img-wrapper">
-                    <div class="vignette"></div>
                     <img src="flixsend.png" alt="Flixsend">
                 </div>
-                <div class="mt-6">
-                    <h3 class="font-serif text-2xl italic">Flixsend Protocol</h3>
-                    <p class="text-xs uppercase tracking-widest text-slate-500 mt-2">P2P • Financial Tech</p>
+                <div class="mt-5">
+                    <h3 class="font-serif text-xl italic tracking-tight">Flixsend Protocol</h3>
+                    <p class="text-[10px] uppercase tracking-widest text-slate-500 mt-1">P2P • Financial Tech</p>
                 </div>
             </div>
 
-            <!-- Project 6: Madukani -->
+            <!-- Project 6 -->
             <div class="project-card group">
                 <div class="project-img-wrapper">
-                    <div class="vignette"></div>
                     <img src="madukani.png" alt="Madukani">
                 </div>
-                <div class="mt-6">
-                    <h3 class="font-serif text-2xl italic">Madukani Shop</h3>
-                    <p class="text-xs uppercase tracking-widest text-slate-500 mt-2">E-Commerce • Multi-vendor</p>
+                <div class="mt-5">
+                    <h3 class="font-serif text-xl italic tracking-tight">Madukani Shop</h3>
+                    <p class="text-[10px] uppercase tracking-widest text-slate-500 mt-1">E-Commerce • Marketplace</p>
                 </div>
             </div>
 
-            <!-- Project 7: Timigold -->
+            <!-- Project 7 -->
             <div class="project-card group">
                 <div class="project-img-wrapper">
-                    <div class="vignette"></div>
                     <img src="timi.png" alt="Timigold">
                 </div>
-                <div class="mt-6">
-                    <h3 class="font-serif text-2xl italic">Timigold Photography</h3>
-                    <p class="text-xs uppercase tracking-widest text-slate-500 mt-2">Portfolio • Editorial Style</p>
-                </div>
-            </div>
-
-            <!-- FAKE/CONCEPT PROJECT 8 -->
-            <div class="project-card group opacity-80">
-                <div class="project-img-wrapper">
-                    <div class="vignette"></div>
-                    <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=1000" alt="Concept">
-                </div>
-                <div class="mt-6">
-                    <h3 class="font-serif text-2xl italic">Lumina AI (Concept)</h3>
-                    <p class="text-xs uppercase tracking-widest text-slate-500 mt-2">Artificial Intelligence • 2024</p>
-                </div>
-            </div>
-
-            <!-- FAKE/CONCEPT PROJECT 9 -->
-            <div class="project-card group opacity-80">
-                <div class="project-img-wrapper">
-                    <div class="vignette"></div>
-                    <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&q=80&w=1000" alt="Concept">
-                </div>
-                <div class="mt-6">
-                    <h3 class="font-serif text-2xl italic">Nexus Protocol</h3>
-                    <p class="text-xs uppercase tracking-widest text-slate-500 mt-2">Web3 Architecture • Concept</p>
+                <div class="mt-5">
+                    <h3 class="font-serif text-xl italic tracking-tight">Timigold Photography</h3>
+                    <p class="text-[10px] uppercase tracking-widest text-slate-500 mt-1">Portfolio • Creative</p>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- Services: Redefined as "Outcomes" -->
-    <section class="py-32 px-10 border-t border-white/5">
-        <div class="max-w-4xl">
-            <span class="text-accent text-[10px] uppercase tracking-[0.5em] mb-10 block underline underline-offset-8 decoration-accent/30">What we achieve</span>
-            <div class="space-y-16">
-                <div class="flex flex-col md:flex-row gap-8 items-baseline">
-                    <span class="font-serif italic text-4xl text-white/20">01</span>
-                    <h4 class="text-3xl md:text-5xl font-serif">Immersive speed. <span class="text-slate-500 text-lg font-sans not-italic block md:inline md:ml-4">Sub 1.5s load times for maximum retention.</span></h4>
+    <!-- Services Section -->
+    <section class="py-32 px-6 md:px-12 border-t border-white/5">
+        <div class="max-w-5xl">
+            <span class="text-accent text-[10px] uppercase tracking-[0.4em] mb-12 block underline decoration-accent/40 underline-offset-8">Outcomes</span>
+            <div class="grid md:grid-cols-2 gap-16">
+                <div>
+                    <h4 class="font-serif text-3xl italic mb-4 text-white">Performance First</h4>
+                    <p class="text-slate-500 leading-relaxed font-light">Sub-1.5s loading speeds are not a luxury; they are a requirement. We optimize every asset to ensure your visitors never wait.</p>
                 </div>
-                <div class="flex flex-col md:flex-row gap-8 items-baseline">
-                    <span class="font-serif italic text-4xl text-white/20">02</span>
-                    <h4 class="text-3xl md:text-5xl font-serif">Storytelling UI. <span class="text-slate-500 text-lg font-sans not-italic block md:inline md:ml-4">Design that feels like a cinematic journey.</span></h4>
-                </div>
-                <div class="flex flex-col md:flex-row gap-8 items-baseline">
-                    <span class="font-serif italic text-4xl text-white/20">03</span>
-                    <h4 class="text-3xl md:text-5xl font-serif">Conversion Focus. <span class="text-slate-500 text-lg font-sans not-italic block md:inline md:ml-4">Strategic psychology built into every pixel.</span></h4>
+                <div>
+                    <h4 class="font-serif text-3xl italic mb-4 text-white">Experience Focused</h4>
+                    <p class="text-slate-500 leading-relaxed font-light">We use cinematic motion and high-end typography to guide your customers through a narrative journey that ends in a sale.</p>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-40 px-10 text-center">
-        <h2 class="font-serif text-5xl md:text-8xl italic mb-12 tracking-tighter">Your brand deserves <br> its own world.</h2>
-        <a href="https://wa.me/message/L5WMYXNVCH36M1" class="cta-glow inline-block bg-accent text-dark font-bold px-12 py-6 rounded-full text-lg hover:scale-105 transition-transform duration-500">
-            Book a Discovery Call
-        </a>
     </section>
 
     <!-- Footer -->
-    <footer class="py-20 px-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-end gap-10">
-        <div>
-            <div class="font-serif italic text-3xl mb-2">AJ Web Tech</div>
-            <p class="text-[10px] uppercase tracking-widest text-slate-600 italic">Working Globally.</p>
+    <footer class="py-20 px-6 md:px-12 border-t border-white/5 mt-20">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+            
+            <!-- Left Side: Identity -->
+            <div class="space-y-4">
+                <div class="font-serif italic text-3xl">AJ Web Tech</div>
+                <div class="flex flex-col text-[10px] uppercase tracking-[0.3em] text-slate-500 space-y-2">
+                    <span>Emmanuel Adesegun</span>
+                    <span>Working Globally</span>
+                </div>
+            </div>
+
+            <!-- Right Side: Links & Contact -->
+            <div class="flex flex-col md:flex-row gap-12 md:gap-24">
+                <div class="space-y-4">
+                    <span class="text-[10px] uppercase tracking-widest text-slate-600 block">Connect</span>
+                    <div class="flex flex-col gap-2 text-xs font-semibold">
+                        <a href="https://www.instagram.com/codepastac" class="hover-link">Instagram</a>
+                        <a href="https://wa.me/message/L5WMYXNVCH36M1" class="hover-link">WhatsApp</a>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <span class="text-[10px] uppercase tracking-widest text-slate-600 block">Status</span>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 bg-accent rounded-full animate-pulse"></span>
+                        <span class="text-[10px] uppercase tracking-widest font-bold">Taking New Projects</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="flex gap-8 text-[10px] uppercase tracking-widest font-bold text-slate-400">
-            <a href="https://www.instagram.com/codepastac" class="hover:text-accent">Instagram</a>
-            <a href="https://wa.me/message/L5WMYXNVCH36M1" class="hover:text-accent">WhatsApp</a>
+
+        <div class="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between text-[9px] uppercase tracking-[0.4em] text-slate-700">
+            <span>© 2024 AJ WEB TECH </span>
+            <span class="mt-4 md:mt-0 italic font-serif text-xs capitalize text-slate-500">Crafting worlds, not just websites.</span>
         </div>
     </footer>
 
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // Animate grid items on scroll
-        gsap.utils.toArray(".project-card").forEach(card => {
+        // Grid Animation
+        gsap.utils.toArray(".project-card").forEach((card, i) => {
             gsap.from(card, {
                 scrollTrigger: {
                     trigger: card,
-                    start: "top 90%",
+                    start: "top 95%",
                 },
-                y: 60,
+                y: 40,
                 opacity: 0,
-                duration: 1.5,
-                ease: "power4.out"
+                duration: 1,
+                delay: i % 3 * 0.1,
+                ease: "power2.out"
             });
         });
     </script>
