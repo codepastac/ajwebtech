@@ -42,7 +42,7 @@
         }
         
         .project-img-wrapper img {
-            filter: grayscale(100%) brightness(0.6);
+            /* Filters removed to show real colors */
             transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
             object-fit: cover;
             width: 100%;
@@ -50,8 +50,7 @@
         }
 
         .project-card:hover img {
-            filter: grayscale(0%) brightness(1);
-            transform: scale(1.03);
+            transform: scale(1.05);
         }
 
         .grain {
@@ -60,7 +59,6 @@
             opacity: 0.03; pointer-events: none; z-index: 50;
         }
 
-        /* Subtle underline animation */
         .hover-link {
             position: relative;
             display: inline-block;
@@ -84,7 +82,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section (Reduced Height to fix big space issue) -->
+    <!-- Hero Section -->
     <section class="pt-40 pb-20 px-6 md:px-12">
         <div class="max-w-6xl">
             <h1 class="font-serif text-[clamp(2.5rem,7vw,6.5rem)] leading-[0.95] tracking-tighter mb-8">
@@ -100,7 +98,18 @@
     <section class="px-6 md:px-12 py-10">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16">
             
-            <!-- Project 1 -->
+            <!-- Project 1: Timigold (Moved to First) -->
+            <div class="project-card group">
+                <div class="project-img-wrapper">
+                    <img src="timi.png" alt="Timigold Photography">
+                </div>
+                <div class="mt-5">
+                    <h3 class="font-serif text-xl italic tracking-tight">Timigold Photography</h3>
+                    <p class="text-[10px] uppercase tracking-widest text-slate-500 mt-1">Portfolio • Creative Direction</p>
+                </div>
+            </div>
+
+            <!-- Project 2: Jara Wallet App -->
             <div class="project-card group">
                 <div class="project-img-wrapper">
                     <img src="jarawalletapp.png" alt="Jara App">
@@ -111,7 +120,7 @@
                 </div>
             </div>
 
-            <!-- Project 2 -->
+            <!-- Project 3: Jara Wallet Web -->
             <div class="project-card group">
                 <div class="project-img-wrapper">
                     <img src="jarawallet.png" alt="Jara Web">
@@ -122,58 +131,36 @@
                 </div>
             </div>
 
-            <!-- Project 3 -->
+            <!-- Project 4: The Ade Quality -->
             <div class="project-card group">
                 <div class="project-img-wrapper">
                     <img src="Ade.png" alt="Ade Quality">
                 </div>
                 <div class="mt-5">
                     <h3 class="font-serif text-xl italic tracking-tight">The Ade Quality</h3>
-                    <p class="text-[10px] uppercase tracking-widest text-slate-500 mt-1">Industrial • Corporate</p>
+                    <p class="text-[10px] uppercase tracking-widest text-slate-500 mt-1">Industrial • Corporate Identity</p>
                 </div>
             </div>
 
-            <!-- Project 4 -->
+            <!-- Project 5: Alter Learning -->
             <div class="project-card group">
                 <div class="project-img-wrapper">
                     <img src="alter.png" alt="Alter Learning">
                 </div>
                 <div class="mt-5">
                     <h3 class="font-serif text-xl italic tracking-tight">Alter Learning</h3>
-                    <p class="text-[10px] uppercase tracking-widest text-slate-500 mt-1">EdTech • Interaction</p>
+                    <p class="text-[10px] uppercase tracking-widest text-slate-500 mt-1">EdTech • Interaction Design</p>
                 </div>
             </div>
 
-            <!-- Project 5 -->
-            <div class="project-card group">
-                <div class="project-img-wrapper">
-                    <img src="flixsend.png" alt="Flixsend">
-                </div>
-                <div class="mt-5">
-                    <h3 class="font-serif text-xl italic tracking-tight">Flixsend Protocol</h3>
-                    <p class="text-[10px] uppercase tracking-widest text-slate-500 mt-1">P2P • Financial Tech</p>
-                </div>
-            </div>
-
-            <!-- Project 6 -->
+            <!-- Project 6: Madukani Shop -->
             <div class="project-card group">
                 <div class="project-img-wrapper">
                     <img src="madukani.png" alt="Madukani">
                 </div>
                 <div class="mt-5">
                     <h3 class="font-serif text-xl italic tracking-tight">Madukani Shop</h3>
-                    <p class="text-[10px] uppercase tracking-widest text-slate-500 mt-1">E-Commerce • Marketplace</p>
-                </div>
-            </div>
-
-            <!-- Project 7 -->
-            <div class="project-card group">
-                <div class="project-img-wrapper">
-                    <img src="timi.png" alt="Timigold">
-                </div>
-                <div class="mt-5">
-                    <h3 class="font-serif text-xl italic tracking-tight">Timigold Photography</h3>
-                    <p class="text-[10px] uppercase tracking-widest text-slate-500 mt-1">Portfolio • Creative</p>
+                    <p class="text-[10px] uppercase tracking-widest text-slate-500 mt-1">E-Commerce • Multi-vendor</p>
                 </div>
             </div>
 
@@ -201,7 +188,6 @@
     <footer class="py-20 px-6 md:px-12 border-t border-white/5 mt-20">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
             
-            <!-- Left Side: Identity -->
             <div class="space-y-4">
                 <div class="font-serif italic text-3xl">AJ Web Tech</div>
                 <div class="flex flex-col text-[10px] uppercase tracking-[0.3em] text-slate-500 space-y-2">
@@ -210,7 +196,6 @@
                 </div>
             </div>
 
-            <!-- Right Side: Links & Contact -->
             <div class="flex flex-col md:flex-row gap-12 md:gap-24">
                 <div class="space-y-4">
                     <span class="text-[10px] uppercase tracking-widest text-slate-600 block">Connect</span>
@@ -223,7 +208,7 @@
                     <span class="text-[10px] uppercase tracking-widest text-slate-600 block">Status</span>
                     <div class="flex items-center gap-2">
                         <span class="w-1.5 h-1.5 bg-accent rounded-full animate-pulse"></span>
-                        <span class="text-[10px] uppercase tracking-widest font-bold">Taking New Projects</span>
+                        <span class="text-[10px] uppercase tracking-widest font-bold text-accent">Taking New Projects</span>
                     </div>
                 </div>
             </div>
@@ -238,7 +223,6 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // Grid Animation
         gsap.utils.toArray(".project-card").forEach((card, i) => {
             gsap.from(card, {
                 scrollTrigger: {
