@@ -58,29 +58,6 @@
             opacity: 0.03; pointer-events: none; z-index: 50;
         }
 
-        /* Modal Styles */
-        #contact-modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            z-index: 100;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(15px);
-        }
-
-        .modal-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
-            max-width: 600px;
-            height: 80vh;
-            border: 1px solid rgba(0, 245, 255, 0.3);
-            border-radius: 20px;
-            overflow: hidden;
-        }
-
         .hover-link {
             position: relative;
             display: inline-block;
@@ -96,19 +73,11 @@
 <body class="font-sans antialiased">
     <div class="grain"></div>
 
-    <!-- Contact Modal (Tally Form) -->
-    <div id="contact-modal">
-        <div class="modal-content bg-dark">
-            <button onclick="toggleModal()" class="absolute top-4 right-4 text-white z-50 text-2xl font-light hover:text-accent transition">&times;</button>
-            <iframe src="https://tally.so/r/A7qRGW" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="Contact AJWT"></iframe>
-        </div>
-    </div>
-
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-40 px-6 md:px-12 py-8 flex justify-between items-center mix-blend-difference">
         <span class="font-serif italic text-2xl tracking-tighter text-white">AJWT</span>
         <div class="flex gap-6 items-center">
-            <button onclick="toggleModal()" class="text-[10px] uppercase tracking-[0.2em] font-bold bg-white text-black px-6 py-3 rounded-full hover:bg-accent transition-colors">Contact me now</button>
+            <a href="mailto:emmanueladesegun2@gmail.com" class="text-[10px] uppercase tracking-[0.2em] font-bold bg-white text-black px-6 py-3 rounded-full hover:bg-accent transition-colors">Work with me</a>
         </div>
     </nav>
 
@@ -230,7 +199,6 @@
                 <div class="space-y-4">
                     <span class="text-[10px] uppercase tracking-widest text-slate-600 block">Contact</span>
                     <div class="flex flex-col gap-2 text-xs font-semibold">
-                        <button onclick="toggleModal()" class="hover-link text-left">Contact me now</button>
                         <a href="mailto:emmanueladesegun2@gmail.com" class="hover-link">emmanueladesegun2@gmail.com</a>
                         <a href="https://www.instagram.com/codepastac" class="hover-link">Instagram</a>
                     </div>
@@ -254,27 +222,6 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // Modal Functionality
-        function toggleModal() {
-            const modal = document.getElementById('contact-modal');
-            if (modal.style.display === 'block') {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto'; // Re-enable scroll
-            } else {
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden'; // Disable scroll
-            }
-        }
-
-        // Close modal if clicking outside the content
-        window.onclick = function(event) {
-            const modal = document.getElementById('contact-modal');
-            if (event.target == modal) {
-                toggleModal();
-            }
-        }
-
-        // Grid Entrance Animation
         gsap.utils.toArray(".project-card").forEach((card, i) => {
             gsap.from(card, {
                 scrollTrigger: {
